@@ -1,38 +1,27 @@
 let score = 0;
-let timeLeft = 30;
-let timer;
-
-function startGame() {
-    score = 0;
-    timeLeft = 30;
-    document.getElementById('answer').disabled = false;
-    document.getElementById('answer').value = "";
-    document.getElementById('answer').focus();
-    document.querySelector('button').disabled = true;
-    generateProblem();
-    updateScore();
-    startTimer();
-}
-
-function startTimer() {
-    timer = setInterval(() => {
-        timeLeft--;
-        document.getElementById('timer').textContent = `Time: ${timeLeft}s`;
-        if (timeLeft <= 0) {
-            clearInterval(timer);
             endGame();
         }
     }, 1000);
 }
 
 function generateProblem() {
-    let num1 = Math.floor(Math.random() * 10) + 1;
-    let num2 = Math.floor(Math.random() * 10) + 1;
+    let num1, num2;
     let operators = ['+', '-', '*', '/'];
     let operator = operators[Math.floor(Math.random() * operators.length)];
-    
-    if (operator === '/' && num1 % num2 !== 0) {
-        operator = '+'; // Avoid decimal answers
+
+    if (operator === '+') {
+        num1 = Math.floor(Math.random() * 900) + 100; // 3-digit addition
+        num2 = Math.floor(Math.random() * 900) + 100;
+    } else if (operator === '-') {
+        num1 = Math.floor(Math.random() * 900) + 100;
+        num2 = Math.floor(Math.random() * 900) + 100;
+        if (num2 > num1) [num1, num2] = [num2, num1]; // Ensure no negative answers
+    } else if (operator === '*') {
+        num1 = Math.floor(Math.random() * 90) + 10; // 2-digit multiplication
+        num2 = Math.floor(Math.random() * 90) + 10;
+    } else if (operator === '/') {
+        num2 = Math.floor(Math.random() * 900) + 100; // 3-digit division
+        num1 = num2 * (Math.floor(Math.random() * 10) + 1); // Ensure integer result
     }
 
     document.getElementById('problem').textContent = `${num1} ${operator} ${num2}`;
@@ -53,9 +42,12 @@ function checkAnswer(num1, num2, operator) {
     
     if (userAnswer === correctAnswer) {
         score++;
+        correctSound.play();
         updateScore();
         generateProblem();
         document.getElementById('answer').value = "";
+    } else {
+        wrongSound.play();
     }
 }
 
