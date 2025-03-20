@@ -7,12 +7,17 @@
 <body>
     <h1>Speedy Arithmetic Trainer</h1>
     <div id="game-container">
+        <div id="name-input">
+            <input type="text" id="player-name" placeholder="Enter your name..." />
+            <button onclick="startGame()">Start Game</button>
+        </div>
         <div id="problem">Ready?</div>
         <input type="number" id="answer" placeholder="Your answer..." disabled>
         <br><br>
-        <button onclick="startGame()">Start Game</button>
         <div id="score">Score: 0</div>
         <div id="timer">Time: 30s</div>
+        <h2>🏅 Leaderboard 🏅</h2>
+        <ol id="leaderboard"></ol>
     </div>
 
     <script src="script.js"></script>

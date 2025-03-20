@@ -2,69 +2,62 @@ body {
     font-family: 'Arial', sans-serif; 
     text-align: center; 
     background: url('vedic-math-bg.jpg') no-repeat center center/cover; 
-    color: #333; 
-    margin: 0; 
-    padding: 0; 
-    height: 100vh; 
-    display: flex; 
-    flex-direction: column; 
-    align-items: center; 
-    justify-content: start;
-    padding-top: 20px; 
+    color: #333;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-
-h1 {
-    font-size: 2.5em; 
-    color: #FF6F61; 
-    margin-bottom: 20px;
-    text-shadow: 2px 2px #fff;
-}
-
 #game-container { 
-    background: rgba(255, 255, 255, 0.9); 
-    padding: 20px; 
-    border-radius: 20px; 
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); 
-    width: 300px; 
+    background: #fff;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    width: 300px;
     animation: fadeIn 1s ease-in;
-    margin-top: 10px; 
 }
-
 #problem { 
-    font-size: 2em; 
+    font-size: 2.5em; 
     margin: 20px 0; 
-    font-weight: bold; 
+    font-weight: bold;
     color: #FF6F61;
 }
-
 input { 
     font-size: 1.5em; 
     padding: 10px; 
-    width: 80%; 
-    border-radius: 10px; 
-    border: 1px solid #ddd; 
-    margin-bottom: 10px; 
+    width: 80%;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
 }
-
 #score, #timer { 
     font-size: 1.2em; 
     margin: 10px; 
-    font-weight: bold; 
+    font-weight: bold;
 }
-
 button { 
     padding: 10px 20px; 
     font-size: 1.2em; 
     cursor: pointer; 
     background: #FF6F61; 
     color: #fff; 
-    border: none; 
-    border-radius: 10px; 
+    border: none;
+    border-radius: 10px;
     transition: 0.3s ease;
 }
-
-button:hover { 
-    background: #E05243; 
+button:hover {
+    background: #E05243;
+}
+#leaderboard {
+    list-style: none;
+    padding: 0;
+}
+#leaderboard li {
+    font-size: 1.2em;
+    margin: 5px 0;
+    color: #333;
 }
 
 @keyframes fadeIn {
