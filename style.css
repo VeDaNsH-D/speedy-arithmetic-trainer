@@ -1,25 +1,95 @@
+/* Body styling */
 body { 
-    font-family: Arial, sans-serif; 
+    font-family: 'Arial', sans-serif; 
     text-align: center; 
-    background-color: #f4f4f4; 
+    background: linear-gradient(120deg, #4facfe, #00f2fe); 
+    color: #333;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+
+/* Game container styling */
 #game-container { 
-    margin-top: 50px; 
+    background: #fff;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    width: 300px;
+    animation: fadeIn 1s ease-in;
 }
+
+/* Problem styling */
 #problem { 
-    font-size: 2em; 
+    font-size: 2.5em; 
     margin: 20px 0; 
+    font-weight: bold;
+    color: #FF6F61;
 }
+
+/* Input box styling */
 input { 
     font-size: 1.5em; 
     padding: 10px; 
+    width: 80%;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
 }
+
+/* Score and timer styling */
 #score, #timer { 
     font-size: 1.2em; 
     margin: 10px; 
+    font-weight: bold;
 }
+
+/* Button styling */
 button { 
     padding: 10px 20px; 
     font-size: 1.2em; 
     cursor: pointer; 
+    background: #FF6F61; 
+    color: #fff; 
+    border: none;
+    border-radius: 10px;
+    transition: 0.3s ease;
+}
+
+/* Button hover effect */
+button:hover {
+    background: #E05243;
+}
+
+/* Smooth fade-in animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* Add glowing effect when getting answers right */
+.correct {
+    animation: glowGreen 0.5s ease-in-out;
+}
+
+/* Add shake effect when getting answers wrong */
+.wrong {
+    animation: shake 0.5s ease-in-out;
+}
+
+/* Green glow animation */
+@keyframes glowGreen {
+    0% { box-shadow: 0 0 5px #0f0; }
+    100% { box-shadow: 0 0 20px #0f0; }
+}
+
+/* Shake animation */
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
 }

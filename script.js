@@ -64,8 +64,6 @@ function generateProblem() {
 function checkAnswer(num1, num2, operator) {
     const userAnswer = parseFloat(document.getElementById('answer').value);
     let correctAnswer;
-
-    // Calculate the correct answer
     switch (operator) {
         case '+': correctAnswer = num1 + num2; break;
         case '-': correctAnswer = num1 - num2; break;
@@ -73,17 +71,28 @@ function checkAnswer(num1, num2, operator) {
         case '/': correctAnswer = num1 / num2; break;
     }
 
-    // Check user's answer and play the corresponding sound
+    const problemElement = document.getElementById('problem');
+
     if (userAnswer === correctAnswer) {
         score++;
         correctSound.play();
         updateScore();
         generateProblem();
         document.getElementById('answer').value = "";
+        
+        // Add green glow for correct answer
+        problemElement.classList.add('correct');
+        setTimeout(() => problemElement.classList.remove('correct'), 500);
+        
     } else {
         wrongSound.play();
+
+        // Add shake animation for wrong answer
+        problemElement.classList.add('wrong');
+        setTimeout(() => problemElement.classList.remove('wrong'), 500);
     }
 }
+
 
 // Update the score display
 function updateScore() {
