@@ -1,15 +1,18 @@
 body { 
     font-family: 'Arial', sans-serif; 
     text-align: center; 
-    background: url('vedic-math-bg.jpg') no-repeat center center/cover; 
+    background: linear-gradient(120deg, #ff9a9e, #fad0c4); 
     color: #333;
     margin: 0;
     padding: 0;
     height: 100vh;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
 }
+
+/* Container styling */
 #game-container { 
     background: #fff;
     padding: 20px;
@@ -18,12 +21,15 @@ body {
     width: 300px;
     animation: fadeIn 1s ease-in;
 }
+
 #problem { 
     font-size: 2.5em; 
     margin: 20px 0; 
     font-weight: bold;
     color: #FF6F61;
 }
+
+/* Input styling */
 input { 
     font-size: 1.5em; 
     padding: 10px; 
@@ -32,11 +38,15 @@ input {
     border: 1px solid #ddd;
     margin-bottom: 10px;
 }
+
+/* Score and timer styles */
 #score, #timer { 
     font-size: 1.2em; 
     margin: 10px; 
     font-weight: bold;
 }
+
+/* Button styling */
 button { 
     padding: 10px 20px; 
     font-size: 1.2em; 
@@ -47,20 +57,57 @@ button {
     border-radius: 10px;
     transition: 0.3s ease;
 }
+
 button:hover {
     background: #E05243;
 }
+
+/* Leaderboard styling */
+h2 {
+    margin-top: 20px;
+    font-size: 1.5em;
+    color: #444;
+}
+
 #leaderboard {
     list-style: none;
     padding: 0;
-}
-#leaderboard li {
+    width: 300px;
+    text-align: left;
+    margin-top: 10px;
     font-size: 1.2em;
-    margin: 5px 0;
-    color: #333;
 }
 
+#leaderboard li {
+    padding: 5px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Animation on correct/wrong answers */
+.correct-answer {
+    animation: correctFlash 0.5s ease-in;
+    color: #4CAF50;
+}
+
+.wrong-answer {
+    animation: wrongFlash 0.5s ease-in;
+    color: #FF0000;
+}
+
+/* Fade-in animation */
 @keyframes fadeIn {
     from { opacity: 0; transform: scale(0.9); }
     to { opacity: 1; transform: scale(1); }
+}
+
+/* Correct answer flash animation */
+@keyframes correctFlash {
+    0% { background-color: #4CAF50; }
+    100% { background-color: #fff; }
+}
+
+/* Wrong answer flash animation */
+@keyframes wrongFlash {
+    0% { background-color: #FF0000; }
+    100% { background-color: #fff; }
 }
