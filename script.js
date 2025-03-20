@@ -40,29 +40,30 @@ function startTimer() {
 // Generate random arithmetic problems based on difficulty
 function generateProblem() {
     let num1, num2;
-    const operators = ["+", "-", "*", "/"];
-    const operator = operators[Math.floor(Math.random() * operators.length)];
+    let operators = ['+', '-', '*', '/'];
+    let operator = operators[Math.floor(Math.random() * operators.length)];
 
-    if (operator === "+") {
-        num1 = Math.floor(Math.random() * 900) + 100; // 3-digit addition
-        num2 = Math.floor(Math.random() * 900) + 100;
-    } else if (operator === "-") {
-        num1 = Math.floor(Math.random() * 900) + 100;
-        num2 = Math.floor(Math.random() * 900) + 100;
-        if (num2 > num1) [num1, num2] = [num2, num1]; // Ensure no negative answers
-    } else if (operator === "*") {
-        num1 = Math.floor(Math.random() * 90) + 10; // 2-digit multiplication
-        num2 = Math.floor(Math.random() * 90) + 10;
-    } else if (operator === "/") {
-        num2 = Math.floor(Math.random() * 900) + 100; // 3-digit divisor
-        num1 = num2 * (Math.floor(Math.random() * 10) + 1); // Ensure integer results
+    if (operator === '+') {
+        num1 = Math.floor(Math.random() * 50) + 1;  // Smaller numbers for faster addition
+        num2 = Math.floor(Math.random() * 50) + 1;
+    } else if (operator === '-') {
+        num1 = Math.floor(Math.random() * 50) + 1;
+        num2 = Math.floor(Math.random() * 50) + 1;
+        if (num2 > num1) [num1, num2] = [num2, num1];  // Still avoid negative results
+    } else if (operator === '*') {
+        num1 = Math.floor(Math.random() * 10) + 1;  // Smaller multiplication numbers
+        num2 = Math.floor(Math.random() * 10) + 1;
+    } else if (operator === '/') {
+        num2 = Math.floor(Math.random() * 10) + 1;  // Smaller division numbers
+        num1 = num2 * (Math.floor(Math.random() * 5) + 1);  // Ensure whole numbers
     }
 
-    document.getElementById("problem").textContent = `${num1} ${operator} ${num2}`;
-    document.getElementById("answer").onkeyup = function (event) {
-        if (event.key === "Enter") checkAnswer(num1, num2, operator);
+    document.getElementById('problem').textContent = `${num1} ${operator} ${num2}`;
+    document.getElementById('answer').onkeyup = function (event) {
+        if (event.key === 'Enter') checkAnswer(num1, num2, operator);
     };
 }
+
 
 // Check user input against the correct answer
 function checkAnswer(num1, num2, operator) {
